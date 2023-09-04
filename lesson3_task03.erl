@@ -3,9 +3,9 @@
 
 split(Bin,Delimiter) -> 
     split(Bin,list_to_binary(Delimiter),<<>>,[]).
+
 split(<<>>,_,Acc,List) ->
     reverse([<<Acc/binary>>|List]);
-
 split(Bin,Delimiter,Acc,List) ->
     DelSize = (byte_size(Delimiter)),
   case Bin of
