@@ -1,4 +1,5 @@
 -module(lesson3_task03).
+
 -export([split/2]).
 
 split(Bin,Delimiter) -> 
@@ -10,16 +11,16 @@ split(Bin,Delimiter,Acc,List) ->
     DelSize = (byte_size(Delimiter)),
   case Bin of
     <<Delimiter:DelSize/binary, Rest/binary>> -> 
-         split(Rest,Delimiter,<<>>,[<<Acc/binary>>|List]);
+        split(Rest,Delimiter,<<>>,[<<Acc/binary>>|List]);
     <<X, Rest/binary>> -> 
-         split(Rest,Delimiter,<<Acc/binary, X>>,List);
+        split(Rest,Delimiter,<<Acc/binary, X>>,List);
     _ -> 
-         split(Bin,Delimiter,Acc,List)
+        split(Bin,Delimiter,Acc,List)
   end.
 
 reverse(L) ->
-     reverse(L,[]).
+    reverse(L,[]).
 reverse([],Acc) -> 
-     Acc;
+    Acc;
 reverse([H|T],Acc) ->
     reverse(T,[H|Acc]).
