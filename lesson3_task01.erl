@@ -5,7 +5,6 @@
 first_word(Bin) ->
     first_word(Bin, <<>>).
 
-
 first_word(<<$\s, _/binary>>, Acc) ->
     Acc;
 first_word(<<X/utf8, Bin/binary>>, Acc) ->
