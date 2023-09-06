@@ -12,8 +12,8 @@ split(Bin,Delimiter,Acc,List) ->
   case Bin of
     <<Delimiter:DelSize/binary, Rest/binary>> -> 
         split(Rest,Delimiter,<<>>,[<<Acc/binary>>|List]);
-    <<X, Rest/binary>> -> 
-        split(Rest,Delimiter,<<Acc/binary, X>>,List);
+    <<X/utf8, Rest/binary>> -> 
+        split(Rest,Delimiter,<<Acc/binary, X/utf8>>,List);
     _ -> 
         split(Bin,Delimiter,Acc,List)
   end.
